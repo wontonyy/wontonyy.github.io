@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Kynd Insurance</title>
+
+  <!-- css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link href="css/nivo-lightbox.css" rel="stylesheet" />
+  <link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+  <link href="css/animations.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet">
+  <link href="color/default.css" rel="stylesheet">
+  
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+  <!-- Navigation -->
+  <div id="navigation">
+    <nav class="navbar navbar-custom" role="navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="site-logo">
+              <a href="index.html" class="brand">kynd</a>
+            </div>
+          </div>
+
+
+          <div class="col-md-10">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                                                <i class="fa fa-bars"></i>
+                                                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="menu">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#works">Impact</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#service" class="btn btn-red" id="gaqButton">Get a Quote</a></li>
+              </ul>
+            </div>
+            <!-- /.Navbar-collapse -->
+
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </nav>
+  </div>
+  <!-- /Navigation -->
+
+
+    <!-- START MESSAGE -->
+      <div class="well text-center" id="npoStartMessage">
+      <p>Before we get started there are a few preliminary questions we need to cover to find the best fit for your insurance needs.</p>
+      <p>If you would rather speak to one of our team to better assist you then do not hesitate to <a href=#contact>contact us</a></p>
+      <button class="btn btn-skin" id="startNpoForm">Let's Get Started</button>
+      </div>
+
+            <!-- Charity Info -->
+      <div class="well text-center" id="npoCharity" style="display: none; width: 70%; float: left;">
+      <p>What type of charity would you like to contibute towards?</p>
+      <div class="row">
+              <div class="col-lg-6 col-lg-offset-3">    
+    <select class="form-control" id="npoCharityType" name="c" multiple="" >
+      <option value="Poverty Reduction" >Poverty Reduction</option><option value="Animal Rescue" >Animal Rescue</option><option value="Children's Hospital" >Children's Hospital</option><option value="Environment Protection" >Environment Protection</option>
+    </select>
+    </div>
+    </div>
+    <br>
+      <button class="btn btn-skin" id="npoCharityUpdate">Next</button>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="well text-center" id="npoContact" style="display: none; width: 70%; float: left;">
+      <p>What is the best way to contact you?</p>
+      <div class="row">
+              <div class="col-lg-6 col-lg-offset-3">    
+    <select class="form-control" id="npoContactPreference" name="c" multiple="" >
+      <option value="A" >Phone</option><option value="B" >Email</option><option value="C" >Text</option><option value="D" >Facetime</option>
+    </select>
+    </div>
+    </div>
+    <p>When is most convenient to reach you?</p>
+      <div class="row">
+              <div class="col-lg-6 col-lg-offset-3">    
+    <select class="form-control" id="npoContactTimePreference" name="c" multiple="" >
+      <option value="A" >9am - 10:59am</option><option value="B" >11am - 12:59pm</option><option value="C" >1pm - 2:59pm</option><option value="D" >3pm - 4:59pm</option><option value="E" >5pm - 6:59pm</option><option value="D" >7pm - 8:59pm</option>
+    </select>
+    </div>
+    </div>
+    <br>
+      <button class="btn btn-skin" id="npoContactUpdate">Next</button>
+      </div>
+
+      <!-- NAME and LOCATION -->
+      <div class="well text-center" id="npoNameLocation" style="display: none; width: 70%; float: left;">
+      <p>What is the name of your organization?</p>
+      <div class="row">
+              <div class="col-lg-6 col-lg-offset-3">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="npoName" id="subject" placeholder="Name of Organization" data-rule="minlen:4" data-msg="Please enter at least 4 chars for the name" />
+                  <div class="validation"></div>
+                </div>
+                </div>
+      </div>
+      <p>And where are you located?</p>
+
+      <div id="googleMapDiv" style="width:100%; height:100%;">
+        <div class="pac-card" id="pac-card">
+          <div>
+            <div id="title">
+              Autocomplete search
+            </div>
+            <div id="type-selector" class="pac-controls">
+              <input type="radio" name="type" id="changetype-all" checked="checked">
+              <label for="changetype-all">All</label>
+
+              <input type="radio" name="type" id="changetype-establishment">
+              <label for="changetype-establishment">Establishments</label>
+
+              <input type="radio" name="type" id="changetype-address">
+              <label for="changetype-address">Addresses</label>
+
+              <input type="radio" name="type" id="changetype-geocode">
+              <label for="changetype-geocode">Geocodes</label>
+            </div>
+            <div id="strict-bounds-selector" class="pac-controls">
+              <input type="checkbox" id="use-strict-bounds" value="">
+              <label for="use-strict-bounds">Strict Bounds</label>
+            </div>
+          </div>
+          <div id="pac-container">
+            <input id="pac-input" type="text"
+                placeholder="Enter a location">
+          </div>
+        </div>
+        <div id="map"></div>
+        <div id="infowindow-content">
+          <img src="" width="16" height="16" id="place-icon">
+          <span id="place-name"  class="title"></span><br>
+          <span id="place-address"></span>
+        </div>
+        </div>
+        <br>
+      <button class="btn btn-skin" id="updateNameLocation">Next</button>
+      </div>
+
+            <!-- CHARITY TYPE -->
+      <div class="well text-center" id="npoType" style="display: none; width: 70%; float: left;">
+      <p>What Is Your Charity Type?</p>
+      <div class="row">
+              <div class="col-lg-6 col-lg-offset-3">    
+    <select class="form-control" id="catType" name="t">
+      <option value=" " >All</option><option value="A" >Welfare</option><option value="B" >Health</option><option value="C" >Education</option><option value="D" >Religion</option><option value="E" >Benefits to the community &#38; other</option>
+    </select>
+    </div>
+    </div><br>
+    <p>And Its Category?</p>
+
+      <div class="row">
+              <div class="col-lg-6 col-lg-offset-3">    
+    <select class="form-control" id="catCode" name="y">
+    <option value=" ">All</option><option value="30">Anglican parishes</option><option value="33">Baha'is religious groups</option><option value="31">Baptist congregations</option><option value="35">Buddhist religious groups</option><option value="53">Community - charitable corporations</option><option value="55">Community - charitable trusts (Other than service clubs and fraternal societies projects)</option><option value="59">Community organizations - not elsewhere classified</option><option value="46">Convents and monasteries</option><option value="83">Corporation funding registered Canadian amateur athletic associations</option><option value="22">Cultural activities and promotion of the arts</option><option value="02">Disaster funds</option><option value="23">Education - charitable corporations</option><option value="25">Education - charitable trusts</option><option value="29">Education organizations - not elsewhere classified</option><option value="75">Employees' charity trusts</option><option value="13">Health - charitable corporations</option><option value="15">Health - charitable trusts</option><option value="19">Health organizations - not elsewhere classified</option><option value="48">Hindu religious groups</option><option value="10">Hospitals</option><option value="60">Islamic religious groups</option><option value="61">Jehovah's Witnesses congregations</option><option value="50">Libraries, museums and other repositories</option><option value="32">Lutheran congregations</option><option value="34">Mennonite congregations</option><option value="51">Military units</option><option value="99">Miscellaneous charitable organizations - not elsewhere classified</option><option value="47">Missionary organizations and propagation of Gospel</option><option value="01">Organizations providing care other than treatment</option><option value="39">Other denominations' congregations or parishes - not elsewhere classified</option><option value="36">Pentecostal assemblies of Canada only</option><option value="37">Presbyterian congregations</option><option value="52">Preservation of sites, beauty and historical</option><option value="54">Protection of animals</option><option value="56">Recreation, playgrounds and vacation camps</option><option value="81">Registered national arts services organizations (RNASO)</option><option value="43">Religion - charitable organizations</option><option value="45">Religion - charitable trusts</option><option value="49">Religious organizations - not elsewhere classified</option><option value="38">Roman Catholic parishes and chapels</option><option value="40">Salvation Army temples</option><option value="63">Service clubs and fraternal societies' charitable corporations</option><option value="65">Service clubs and fraternal societies' projects</option><option value="11">Services other than hospitals</option><option value="41">Seventh-day Adventist congregations</option><option value="62">Sikh religious groups</option><option value="21">Support of schools and education</option><option value="42">Synagogues</option><option value="20">Teaching institutions or institutions of learning</option><option value="57">Temperance associations</option><option value="85">Trust funding registered Canadian amateur athletic associations</option><option value="44">United church congregations</option><option value="03">Welfare - charitable corporations</option><option value="05">Welfare - charitable trusts</option><option value="09">Welfare organizations - not elsewhere classified</option></select>
+    </div>
+    </div>
+<br>
+<br>
+      <button class="btn btn-skin" id="updateNpoType">Next</button>
+
+      </div>
+
+<!-- Building Information -->
+<div class="well text-center" id="npoBuilding" style="display: none; width: 70%; float: left;">
+<p>Do you own your own building?</p>
+<div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+<select class="form-control" id="catOwnBuilding" name="b" onchange="redirect(this.selectedIndex)">
+<option value="Yes" >Yes</option><option value="No" >No</option>
+</select>
+</div>
+</div>
+<br>
+<br>
+
+<div class="row marginbot-20">
+<div class="col-md-3 col-md-offset-3 xs-marginbot-20">
+<div class="form-group">
+<input type="number" name="npoBuildingAge" class="form-control" id="npoBuildingAge" placeholder="Approx. Building Age" />
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<select class="form-control" id="catTypeHeating" name="heatSelect" onchange="redirect(this.selectedIndex)"><option value="" disabled selected>Select Heat Type</option><option value="electric" >Electric</option><option value="oilInside" >Oil (Inside Tank)</option><option value="oilOutside" >Oil (Outside Tank)</option><option value="wood" >Wood</option>
+</select>
+</div>
+</div>
+</div>
+<br>
+
+<div class="row marginbot-20">
+<div class="col-md-3 col-md-offset-3 xs-marginbot-20">
+<div class="form-group">
+<input type="number" name="npoBuildingSqrFt" class="form-control" id="npoBuildingSqrFt" placeholder="Approx. Building Sqr. Footage" />
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<select class="form-control" id="catSumpPump" name="pumpSelect" onchange="redirect(this.selectedIndex)"><option value="" disabled selected>Sump Pump?</option><option value="yes" >Yes</option><option value="no" >No</option>
+</select>
+</div>
+</div>
+</div>
+
+<button class="btn btn-skin" id="updateNpoBuilding">Next</button>
+</div>
+
+<!-- Staff Information -->
+
+<div class="well text-center" id="npoStaff" style="display: none; width: 70%; float: left;">
+<p>Your doing great! We just have a few more questions for you, answering them fine tunes your quote to best represent the needs of your organization.</p>
+  <div class="row marginbot-20">
+<div class="col-md-3 col-md-offset-3 xs-marginbot-20">
+<div class="form-group">
+<input type="number" name="npoAmountEmployees" class="form-control" id="npoAmountEmployees" placeholder="Number of Employees" />
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<input type="number" name="npoAmountDirectors" class="form-control" id="npoAmountDirectors" placeholder="Number of Directors" />
+</div>
+</div>
+</div>
+
+<div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+        <p>These services are typically bundled into your insurance policy:</p>
+<input type="checkbox" name="addonLiability" id="counsellingLiability" value="counsellingLiability" checked> Counselling Liability<br>
+<input type="checkbox" name="addonLiability" id="officeLiability" value="officeLiability" checked> Director/Office Liability<br>
+<input type="checkbox" name="addonLiability" id="abuseLiability" value="abuseLiability" checked> Abuse Liability<br>
+</div>
+</div>
+<br>
+
+<div class="row marginbot-20">
+<div class="col-md-3 col-md-offset-3 xs-marginbot-20">
+<div class="form-group">
+<input type="text" name="npoContactName" class="form-control" id="npoContactName" placeholder="Main Contact Name" />
+</div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<input type="email" name="npoContactEmail" class="form-control" id="npoContactEmail" placeholder="Email" />
+</div>
+</div>
+</div>
+
+<button class="btn btn-skin" id="updateNpoEmployees">Next</button>
+</div>
+
+<div class="text-center" id="nonProfitProgress" style="width: 30%; float: right; display: none;">
+
+  <h3 style="color: #666">Quote Progress</h3>
+
+  <h4 class="my-0 display-2 text-light font-weight-normal mb-3">$<span class="h3" id="currentQuote">$</span> <span class="h5">/mo</span></h4>
+
+  <div class="progress">
+  <div id="nonProfitProgBar" class="progress-bar" role="progressbar" aria-valuenow="16"
+  aria-valuemin="0" aria-valuemax="100" style="width:16%">
+    16%
+  </div>
+</div>
+
+  <ul style="list-style-type: none;">
+    <li class="progressListItem" id="listCharity">Charity</li>
+    <li class="progressListItem" id="listContact">Contact Info</li>
+    <li class="progressListItem" id="listLocation">Location</li>
+    <li class="progressListItem" id="listOperations">Operations</li>
+    <li class="progressListItem" id="listBuilding">Building</li>
+    <li class="progressListItem" id="listEmployees">Employees</li>
+    <li class="progressListItem" id="listSummary">Summary</li>
+  </ul>
+
+</div>
+
+<!-- End MESSAGE -->
+
+<div class="well text-center" id="npoFinish" style="display: none; width: 70%; float: left;">
+  
+
+            <ul class="list-unstyled mb-5 position-relative">
+              <li>Every month part of your premium will go towards a charity with a focus on <b><span id="charityFocus"></span></b>.</li>
+              <li><b id="numOfEmp"></b> employees covered</li>
+              <li id="counsellingLiabilityFinish" style="display: none;">Comprehensive counselling liability included.</li>
+              <li id="officeLiabilityFinish" style="display: none;">Office and Director liability included.</li>
+              <li id="abuseLiabilityFinish" style="display: none;">Abuse liability included.</li>
+              <li id="newBuildingDiscount" style="display: none;">You qualify for the new building discount.</li>
+              <li id="sumpPumpDiscount" style="display: none;">Discount applied for existing Sump Pump.</li>
+              <p>For even more savings</p>
+              <button type="button" class="btn btn-skin" aria-label="Left Align" id="carBundle">
+ <span class="fas fa-car fa-lg" aria-hidden="true"> Bundle With Car Insurance</span>
+ </button>
+            </ul>
+            <p>or</p>
+            <button type="button" class="btn btn-lg btn-block btn-skin  btn-custom ">Sign up right now</button>
+</div>
+
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="footer-menu">
+            <li><a href="#">Home</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 text-right copyright">
+          &copy;Copyright - Kynd Insurance. All Rights Reserved
+          <div style="display: none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core JavaScript Files -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/jquery.scrollTo.js"></script>
+  <script src="js/jquery.appear.js"></script>
+  <script src="js/stellar.js"></script>
+  <script src="js/nivo-lightbox.min.js"></script>
+
+  <script src="js/custom.js"></script>
+  <script src="js/css3-animate-it.js"></script>
+  <script src="contactform/contactform.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq3gBkeYhd5t0tDIAsDFr-8JYVAM7UXw0&libraries=places&callback=initMap"
+        async defer></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#npoCharity").css("height", $("#nonProfitProgress").height());
+});
+
+function round(value, decimals) {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
+$('#carBundle').click(function(){
+  alert("User would be sent to Auto Insurance Quote at this time.");
+});
+
+  $('#startNpoForm').click(function(){
+    $('#npoStartMessage').hide();
+    $('#nonProfitProgress').show();
+    $("#listCharity").css("color", "white");
+    $('#npoCharity').show();
+    sessionStorage.setItem("QuoteValue",4600);
+  });
+
+  $('#npoCharityUpdate').click(function(){
+    $('#npoCharity').hide();
+    $("#listCharity").css("color", "green");
+    $("#listContact").css("color", "white");
+    $("#nonProfitProgBar").css("width", "12%");
+    $("#nonProfitProgBar").attr("aria-valuenow", "12%");
+    $("#nonProfitProgBar").text("12%");
+    $('#charityFocus').text($('#npoCharityType').val());
+    $('#npoContact').show();
+    sessionStorage.setItem("QuoteValue",3000);
+  });
+
+  $('#npoContactUpdate').click(function(){
+    $('#npoContact').hide();
+    $("#listContact").css("color", "green");
+    $("#listLocation").css("color", "white");
+    $("#nonProfitProgBar").css("width", "28%");
+    $("#nonProfitProgBar").attr("aria-valuenow", "28%");
+    $("#nonProfitProgBar").text("28%");
+    $('#npoNameLocation').show();
+  });
+
+  $('#updateNameLocation').click(function(){
+    $('#npoType').show();
+    $("#listLocation").css("color", "green");
+    $("#listOperations").css("color", "white");
+    $("#nonProfitProgBar").css("width", "42%");
+    $("#nonProfitProgBar").attr("aria-valuenow", "42%");
+    $("#nonProfitProgBar").text("42%");
+    $('#npoNameLocation').hide();
+  });
+
+  $('#updateNpoType').click(function(){
+    $('#npoType').hide();
+    $("#listOperations").css("color", "green");
+    $("#listBuilding").css("color", "white");
+    $('#npoBuilding').show();
+    $('#npoRunningQuote').show();
+    $("#nonProfitProgBar").css("width", "58%");
+    $("#nonProfitProgBar").attr("aria-valuenow", "58%");
+    $("#nonProfitProgBar").text("58%");
+    var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+  });
+
+  $('#updateNpoBuilding').click(function(){
+    $('#npoBuilding').hide();
+    $("#listEmployees").css("color", "white");
+    $("#listBuilding").css("color", "green");
+    $("#nonProfitProgBar").css("width", "75%");
+    $("#nonProfitProgBar").attr("aria-valuenow", "75%");
+    $("#nonProfitProgBar").text("75%");
+    if($('#npoBuildingAge').val() <= 10){
+      $('#newBuildingDiscount').show();
+    }
+    if($('#catSumpPump').val() == 'yes'){
+      $('#sumpPumpDiscount').show();
+    }
+    $('#npoStaff').show();
+  });
+
+  $('#updateNpoEmployees').click(function(){
+    $('#npoFinish').show();
+    $('#npoStaff').hide();
+    $('#npoRunningQuote').hide();
+    $("#listEmployees").css("color", "green");
+    $("#listSummary").css("color", "white");
+    $("#nonProfitProgBar").css("width", "100%");
+    $("#nonProfitProgBar").attr("aria-valuenow", "100%");
+    $("#nonProfitProgBar").text("100%");
+    if($("#counsellingLiability").is(':checked')){
+      $('#counsellingLiabilityFinish').show();
+    }
+     if($("#officeLiability").is(':checked')){
+       $('#officeLiabilityFinish').show();
+    }
+    if($("#abuseLiability").is(':checked')){
+       $('#abuseLiabilityFinish').show();
+    }
+     var perMonth = getMonthlyQuote();
+    $('#finalQuote').text(perMonth);
+  });
+
+  function getMonthlyQuote(){
+    var perMonth = sessionStorage.getItem("QuoteValue") / 12;
+      perMonth = round(perMonth,2);
+      return perMonth;
+  }
+
+$('#catFarmBuildingMaterial').on('change', function(){
+    if(this.value=="Wood"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 500;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value=="Brick"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value=="Steel"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    }
+  });
+
+$('#farmBuildingAge').on('change', function(){
+    if(this.value<=10){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 200;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value<=50){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 250;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value<=300){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 500;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    }
+  });
+
+$('#finishedBasement').on('change', function(){
+  if($('#finishedBasement').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 75;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+  if($('#finishedBasement').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 75;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+});
+
+$('#pool').on('change', function(){
+  if($('#pool').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 33;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+  if($('#pool').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 33;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+});
+
+$('#openWells').on('change', function(){
+  if($('#openWells').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 170;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+  if($('#openWells').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 170;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+});
+
+$('#golfCarts').on('change', function(){
+  if($('#golfCarts').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 50;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+  if($('#golfCarts').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 50;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+});
+
+$('#waterCrafts').on('change', function(){
+  if($('#waterCrafts').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 90;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+  if($('#waterCrafts').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 90;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+  }
+});
+
+$('#farmBuildingSqrFt').on('change', function(){
+    if(this.value<=1000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 600;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value<=5000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value<=25000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 250;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value > 25000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 600;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    }
+  });
+
+$('#farmSumpPump').on('change', function(){
+    if(this.value=="yes"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    } else if(this.value=="no"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentFarmQuote').text(perMonth);
+    }
+  });
+
+
+  $('#catOwnBuilding').on('change', function(){
+    if(this.value=="Yes"){
+      sessionStorage.setItem("QuoteValue",4600);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else{
+      sessionStorage.setItem("QuoteValue",2600);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    }
+  });
+
+  $('#npoBuildingAge').on('change', function(){
+    if(this.value<=10){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 500;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value<=50){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 250;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value<=300){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 500;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    }
+  });
+
+$('#catTypeHeating').on('change', function(){
+    if(this.value=="electric"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 200;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value=="oilInside"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 300;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value=="oilOutside"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value=="wood"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 500;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    }
+  });
+
+$('#npoBuildingSqrFt').on('change', function(){
+    if(this.value<=1000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 600;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value<=5000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value<=25000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 250;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value > 25000){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 600;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    }
+  });
+
+$('#catSumpPump').on('change', function(){
+    if(this.value=="yes"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value=="no"){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    }
+  });
+
+$('#npoAmountEmployees').on('change', function(){
+  $('#numOfEmp').text(this.value);
+    if(this.value<=5){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value<=10){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 150;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    }  else if(this.value<=100){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 350;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    }
+  });
+
+$('#npoAmountDirectors').on('change', function(){
+    if(this.value<=5){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) - 100;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } else if(this.value<=10){
+      var quote = Number(sessionStorage.getItem("QuoteValue")) + 150;
+      sessionStorage.setItem("QuoteValue",quote);
+      var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+    } 
+  });
+
+// $('input:radio[name=addonLiability]:checked').change(function () {
+//             if ($("input[name='addonLiability']:checked").val() == 'counsellingLiability') {
+//                 var quote = Number(sessionStorage.getItem("QuoteValue")) + 150;
+//                 sessionStorage.setItem("QuoteValue",quote);
+//                 $('#currentQuote').text(sessionStorage.getItem("QuoteValue"));
+//             }
+//             if ($("input[name='addonLiability']:not(:checked)").val() == 'counsellingLiability') {
+//                 var quote = Number(sessionStorage.getItem("QuoteValue")) - 150;
+//                 sessionStorage.setItem("QuoteValue",quote);
+//                 $('#currentQuote').text(sessionStorage.getItem("QuoteValue"));
+//             }
+//             if ($("input[name='addonLiability']:checked").val() == 'officeLiability') {
+//                 var quote = Number(sessionStorage.getItem("QuoteValue")) + 190;
+//                 sessionStorage.setItem("QuoteValue",quote);
+//                 $('#currentQuote').text(sessionStorage.getItem("QuoteValue"));
+//             }
+//             if ($("input[name='addonLiability']:checked").val() == 'abuseLiability') {
+//                 var quote = Number(sessionStorage.getItem("QuoteValue")) + 110;
+//                 sessionStorage.setItem("QuoteValue",quote);
+//                 $('#currentQuote').text(sessionStorage.getItem("QuoteValue"));
+//               }
+// });
+
+$('#counsellingLiability').on('change', function(){
+  if($('#counsellingLiability').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 150;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+  }
+  if($('#counsellingLiability').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 150;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+  }
+});
+
+$('#officeLiability').on('change', function(){
+  if($('#officeLiability').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 190;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+  }
+  if($('#officeLiability').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 190;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+  }
+});
+
+$('#abuseLiability').on('change', function(){
+  if($('#abuseLiability').is(':checked')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) + 110;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+  }
+  if($('#abuseLiability').is(':not(:checked)')){
+    var quote = Number(sessionStorage.getItem("QuoteValue")) - 110;
+    sessionStorage.setItem("QuoteValue",quote);
+    var perMonth = getMonthlyQuote();
+      $('#currentQuote').text(perMonth);
+  }
+});
+
+</script>
+</body>
+</html>
